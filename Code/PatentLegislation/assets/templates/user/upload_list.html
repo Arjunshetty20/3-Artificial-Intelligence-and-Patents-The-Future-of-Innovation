@@ -1,0 +1,55 @@
+{% extends 'userbasee.html' %}
+{% load static %}
+
+{% block contents %}
+
+<section id="intro">
+
+    <div class="intro-content">
+      <h2>WELCOME <span>USER</span><br>PAGE</h2>
+
+    <h2>file</h2>
+    <center><table border="2px solid blue" align="center">
+                                  <tr><th style="color:red">email</th>
+                                  <th style="color:red">category</th>
+                                    <th style="color:red">title</th>
+                                    <th style="color:red">description</th>
+                                    <th style="color:red">file</th>
+                                    <th style="color:red">Verification</th>
+                                    <th style="color:red">permission</th>
+
+                                  </tr>
+
+                              {% for x in object %}
+                                  <tr style="color:black">
+                                    <td>{{x.email}}</td>
+                                    <td>{{x.category}}</td>
+                                    <td>{{x.title}}</td>
+                                    <td>{{x.description}}</td>
+                                    <td>{{x.file}}</td>
+                                    <td style="color:brown"><a href="{{x.file.url }}" class="btn btn-primary btn-sm" target="_blank">verification</a></td>
+                                      {% if x.status == 'waiting' %}
+                                      <td> <a href="/sendpermission/?id={{ x.id }}" >permission</a></td>
+                                    {% else %}
+                                            <td style="color:Skyblue">granted</td>
+                                            {% endif %}
+
+                                     </tr>
+                                    {% endfor %}
+
+
+
+                            </table></center>
+    </div>
+
+    <div id="intro-carousel" class="owl-carousel" >
+      <div class="item" style="background-image: url('img/intro-carousel/1.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/2.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/3.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/4.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/5.jpg');"></div>
+    </div>
+
+  </section>
+
+{% endblock %}

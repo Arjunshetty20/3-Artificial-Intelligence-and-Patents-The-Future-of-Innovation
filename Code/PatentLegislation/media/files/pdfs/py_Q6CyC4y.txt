@@ -1,0 +1,33 @@
+-->cd desktop
+-->django-admin startproject wedapplication
+-->python manage.py startapp crudapplication
+--> Db-->python manage.py makemigrations 
+-->python manage.py migrate
+
+
+
+https://github.com/susantabiswas/realtime-facial-emotion-analyzer
+
+
+
+TEMPLATES:-->
+https://www.html5webtemplates.co.uk/templates.html
+
+file extension:-->
+https://stackoverflow.com/questions/13455052/getting-file-extension-in-django-template
+
+
+
+-->https://realpython.com/playing-and-recording-sound-python/
+
+
+-->https://p.w3layouts.com/demos/food_template/web/order.html
+
+
+Famous dishes:https://www.thespruceeats.com/popular-indian-dishes-1957891
+https://food.ndtv.com/lists/10-best-indian-recipes-701750
+
+https://www.youtube.com/watch?v=g8ZsvLol914
+
+
+https://www.nltk.org/book/ch05.html-->english in python

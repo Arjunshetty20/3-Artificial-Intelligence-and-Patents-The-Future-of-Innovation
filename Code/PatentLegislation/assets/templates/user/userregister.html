@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contents %}
+
+<section id="intro">
+
+    <div class="intro-content">
+      <h2>User<span>Registration</span></h2>
+                                 <form action="/userregister/" method="POST">
+                                    {% csrf_token %}<center>
+                                   <h3> <table>
+                                          <tr><td style="color:red">First Name</td><td >{{form.firstname}}</td></tr>
+                                          <tr><td style="color:red">Last Name</td><td >{{form.lastname}}</td></tr>
+                            <tr><td style="color:red">Password</td><td>{{form.passwd}}</td></tr>
+                                        <tr><td style="color:red">Email</td><td>{{form.email}}</td></tr>
+                            <tr><td style="color:red">Mobile</td><td>{{form.mobileno}}</td></tr>
+                            <tr><td style="color:red">qualification</td><td>{{form.qualification}}</td></tr>
+                            <tr><td style="color:red">city</td><td>{{form.city}}</td></tr>
+                            <tr><td></td><td>{{form.status}}</td></tr>
+                                    </table></h3>
+                                <input type="submit" value="submit">
+
+                            </center></form>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <font color='darkred'> {{ message }}</font>
+                                {% endfor %}
+                            {% endif %}
+
+      </div>
+    </div>
+
+    <div id="intro-carousel" class="owl-carousel" >
+      <div class="item" style="background-image: url('img/intro-carousel/1.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/2.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/3.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/4.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/5.jpg');"></div>
+    </div>
+
+  </section>
+
+{% endblock %}

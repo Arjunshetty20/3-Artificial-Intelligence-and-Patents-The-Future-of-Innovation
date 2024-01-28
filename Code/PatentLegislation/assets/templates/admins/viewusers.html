@@ -1,0 +1,56 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% block contents %}
+
+<section id="intro">
+
+    <div class="intro-content">
+      <h2>View <span>users</span><br>details</h2>
+
+                            <center><table border="2px solid blue" align="center">
+                                  <tr><th style="color:red">First Name</th>
+                                    <th style="color:red">Last Name</th>
+                                    <th style="color:red">Email</th>
+                                    <th style="color:red">Password</th>
+                                    <th style="color:red">Mobile</th>
+                                    <th style="color:red">qualification</th>
+                                    <th style="color:red">City</th>
+                                    <th style="color:red">status</th>
+                                    <th style="color:red">activate</th>
+                                  </tr>
+
+                              {% for x in object %}
+                                  <tr style="color:black">
+                                    <td>{{x.firstname}}</td>
+                                    <td>{{x.lastname}}</td>
+                                    <td>{{x.email}}</td>
+                                    <td>{{x.passwd}}</td>
+                                    <td>{{x.mobileno}}</td>
+                                    <td>{{x.qualification}}</td>
+                                    <td>{{x.city}}</td>
+                                    <td>{{x.status}}</td>
+
+                                    {% if x.status == 'waiting' %}
+                                      <td> <a href="/activateuser/?pid={{ x.id }}" >Activate</a></td>
+                                    {% else %}
+                                            <td> Activated</td>
+                                            {% endif %}
+
+                                     </tr>
+                                    {% endfor %}
+
+                            </table></center>
+    </div>
+
+    <div id="intro-carousel" class="owl-carousel" >
+      <div class="item" style="background-image: url('img/intro-carousel/1.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/2.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/3.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/4.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/5.jpg');"></div>
+    </div>
+
+  </section>
+
+{% endblock %}

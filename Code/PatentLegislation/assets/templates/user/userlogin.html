@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contents %}
+
+<section id="intro">
+
+    <div class="intro-content">
+      <h2>User<span>Login</span></h2>
+      <div>
+
+
+                            <form action="/userlogincheck/" method="POST">
+                                 {% csrf_token %}<center>
+                                <table><tr><td style="color:black">
+                                <input  type="text" name="uname" placeholder="Enter EMAIL" ><br/><br/>
+<!--                                    <input type="email" name="email" class="form-control"  placeholder="Email">-->
+                                 <input  type="password" name="upasswd" placeholder="PASSWORD"  ><br/><br/>
+                                    </td></tr></table> <input type="submit" style="color:#FF4500" value="submit">&nbsp;&nbsp;
+                                <input type="reset" style="color:#FF4500" value="reset">
+                            <br><br><h3 style="color:Black">New User Register Here ?</h3><a href="{% url 'userregister' %}" style="color:Blue">Click Here</a>
+                            </center></form>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <font color='darkred'> {{ message }}</font>
+                                {% endfor %}
+                            {% endif %}
+
+      </div>
+    </div>
+
+    <div id="intro-carousel" class="owl-carousel" >
+      <div class="item" style="background-image: url('img/intro-carousel/1.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/2.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/3.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/4.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/5.jpg');"></div>
+    </div>
+
+  </section>
+
+{% endblock %}

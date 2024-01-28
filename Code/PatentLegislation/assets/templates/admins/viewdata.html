@@ -1,0 +1,54 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% block contents %}
+
+<section id="intro">
+    <div class="intro-content">
+      <h2>View <span>users</span><br>details</h2>
+                            <center>
+                                <table border="2px solid blue" align="center">
+                                  <tr>
+                                    <th style="color:red">Email</th>
+                                    <th style="color:red">category</th>
+                                    <th style="color:red">title</th>
+                                    <th style="color:red">description</th>
+                                    <th style="color:red">file</th>
+                                    <th style="color:red">Patent</th>
+                                    <th style="color:red">status</th>
+                                  </tr>
+                                  {% for x in object %}
+                                  <tr style="color:black">
+                                    <td>{{x.email}}</td>
+                                    <td>{{x.category}}</td>
+                                    <td>{{x.title}}</td>
+                                    <td>{{x.description}}</td>
+                                    <td>{{x.file}}</td>
+                                    <td>{{x.status}}</td>
+                                    <td>
+                                         {% if x.status == 'granted' and x.adminstatus == 'waiting' %}
+                                        <a href="/AdminAccept/?id={{ x.id }}" >Commit</a>
+                                         {% elif x.status == 'Existed' or x.status == 'waiting' %}
+                                         <a href="/AdminDelete/?id={{ x.id }}" >Delete</a>
+                                        {% else %}
+                                         Granted
+                                          {%endif%}
+
+                                    </td>
+                                  </tr>
+                                    {% endfor %}
+                            </table>
+                            </center>
+    </div>
+
+    <div id="intro-carousel" class="owl-carousel" >
+      <div class="item" style="background-image: url('img/intro-carousel/1.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/2.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/3.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/4.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/5.jpg');"></div>
+    </div>
+
+  </section>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'userbasee.html' %}
+{% load static %}
+
+{% block contents %}
+
+<section id="intro">
+
+    <div class="intro-content">
+      <h2>UPLOAD <span>FILE</span></h2>
+      <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <center><br><br>
+            {{form.as_p}}
+            <button type="submit" >Save</button>
+        </center>
+</form>
+    </div>
+
+    <div id="intro-carousel" class="owl-carousel" >
+      <div class="item" style="background-image: url('img/intro-carousel/1.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/2.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/3.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/4.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/5.jpg');"></div>
+    </div>
+
+  </section>
+
+{% endblock %}
